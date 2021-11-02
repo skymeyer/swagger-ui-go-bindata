@@ -16,3 +16,10 @@ func WithEmbeddedSpec(spec []byte) Option {
 		s.specEmbed = spec
 	}
 }
+
+// WithPrefix sets the http mux prefix.
+func WithPrefix(prefix string) Option {
+	return func(s *SwaggerUI) {
+		s.prefix = prefix
+	}
+}
