@@ -24,6 +24,8 @@ func main() {
 }
 ```
 
+## Options
+
 More useful is the ability to set the OpenAPI spec you want to display instead of the default demo Petstore. This can be achieved by using the `swaggerui.WithSpecURL` option.
 
 ```go
@@ -40,8 +42,18 @@ swaggerui.New().Handler(
 )
 ```
 
-If both options are specified, the `WithEmbeddedSpec` has precedence.
+If both `WithEmbeddedSpec` and `swaggerui.WithSpecURL` are specified, then `WithEmbeddedSpec` has precedence.
+
+When not serving Swagger UI from the root, use `swaggerui.WithPrefix` to match the sub path accordingly:
+
+```go
+mux := http.NewServeMux()
+mux.Handle("/swagger-ui/", swaggerui.New(
+	swaggerui.WithPrefix("/swagger-ui/"),
+).Handler())
+http.ListenAndServe(":8080", mux)
+```
 
 ## Example
 
-Run the [example code](example/main.go) using `go run ./example` and point your browser to [http://localhost:8080/](http://localhost:8080/).
+Run the [example code](example/main.go) using `go run ./example` and point your browser to [http://localhost:8080/swagger-ui](http://localhost:8080/swagger-ui).
