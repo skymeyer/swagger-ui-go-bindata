@@ -1,9 +1,11 @@
 # Swagger UI Go Bindata
 
+[![go-doc](https://pkg.go.dev/badge/go.skymeyer.dev/swagger-ui-bindata?status.svg)](https://pkg.go.dev/go.skymeyer.dev/swagger-ui-bindata)
+[![Go Report Card](https://goreportcard.com/badge/go.skymeyer.dev/swagger-ui-bindata)](https://goreportcard.com/report/go.skymeyer.dev/swagger-ui-bindata)
 [![GitHub license](https://img.shields.io/github/license/skymeyer/swagger-ui-go-bindata)](https://github.com/skymeyer/swagger-ui-go-bindata/blob/main/LICENSE)
 
 This package embeds [swagger-ui-dist](https://github.com/swagger-api/swagger-ui/tree/master/dist) using
-[go-bindata](https://github.com/go-bindata/go-bindata) and exposes an `http.Handler` to integrate in existing HTTP server projects. The generated `bindata` is available at `go.skymeyer.dev/swagger-ui-bindata/bindata` and is generated with the `-fs` option exposing an `http.FileSystem ` interface.
+[go-bindata](https://github.com/go-bindata/go-bindata) and exposes an `http.Handler` to integrate in existing HTTP server projects. The generated `bindata` is available at `go.skymeyer.dev/swagger-ui-bindata/bindata` and is generated with the `-fs` option exposing an `http.FileSystem` interface.
 
 ## Usage
 
@@ -14,7 +16,6 @@ package main
 
 import (
 	"net/http"
-
 	swaggerui "go.skymeyer.dev/swagger-ui-bindata"
 )
 
