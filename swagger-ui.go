@@ -11,6 +11,7 @@ import (
 )
 
 var (
+	indexPage    = "index.html"
 	staticDir    = "dist/"
 	embeddedSpec = "spec.json"
 	replacePath  = "./"
@@ -47,7 +48,7 @@ func (s *SwaggerUI) Handler() http.Handler {
 
 	// Embedded spec support
 	if s.specEmbed != nil {
-		mux.HandleFunc(embeddedSpec, func(w http.ResponseWriter, r *http.Request) {
+		mux.HandleFunc(path.Join(s.prefix, embeddedSpec), func(w http.ResponseWriter, r *http.Request) {
 			w.Write(s.specEmbed)
 		})
 	}
@@ -56,7 +57,7 @@ func (s *SwaggerUI) Handler() http.Handler {
 	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		// Customize original index.html
 		s.init.Do(func() {
-			index := bindata.MustAsset("index.html")
+			index := bindata.MustAsset(indexPage)
 
 			// Fixup resource paths
 			index = bytes.ReplaceAll(index, []byte(replacePath), []byte("./"+staticDir))

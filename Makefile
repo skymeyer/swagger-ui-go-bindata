@@ -1,6 +1,6 @@
 SHELL = /bin/bash
 
-all: gen build
+all: gen build test
 
 gen:
 	go generate ./...
@@ -9,7 +9,10 @@ gen:
 build:
 	go build ./...
 
+test:
+	go test -race ./.
+
 tools:
 	go install github.com/go-bindata/go-bindata/go-bindata
 
-.PHONY: gen build tools
+.PHONY: gen build test tools
