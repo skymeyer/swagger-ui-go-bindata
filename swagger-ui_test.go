@@ -16,7 +16,7 @@ var (
 	mainDefaultSpec                 = "https://petstore.swagger.io/v2/swagger.json"
 	mainEmbeddedSpec                = "./spec.json"
 	distSwaggerUICSS                = "sourceMappingURL=swagger-ui.css.map"
-	distSwaggerUIBundleVersion      = `Vr="4.3.0"`
+	distSwaggerUIBundleVersion      = `Vr="4.4.0"`
 	distSwaggerUIBundleJS           = "For license information please see swagger-ui-bundle.js.LICENSE.txt"
 	distSwaggerUIStandalonePresetJS = "For license information please see swagger-ui-standalone-preset.js.LICENSE.txt"
 )
